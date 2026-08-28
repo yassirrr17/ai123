@@ -1,0 +1,61 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        surface: "#f9f9ff",
+        "surface-dim": "#d3daef",
+        "surface-bright": "#f9f9ff",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "surface-container": "#e9edff",
+        "surface-container-high": "#e1e8fd",
+        "surface-container-highest": "#dce2f7",
+        "on-surface": "#141b2b",
+        "on-surface-variant": "#434655",
+        "inverse-surface": "#293040",
+        "inverse-on-surface": "#edf0ff",
+        outline: "#737686",
+        "outline-variant": "#c3c6d7",
+        "surface-tint": "#0053db",
+        primary: "#004ac6",
+        "on-primary": "#ffffff",
+        "primary-container": "#2563eb",
+        "on-primary-container": "#eeefff",
+        "inverse-primary": "#b4c5ff",
+        secondary: "#006c49",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#6cf8bb",
+        "on-secondary-container": "#00714d",
+        tertiary: "#3e3fcc",
+        "on-tertiary": "#ffffff",
+        "tertiary-container": "#585be6",
+        "on-tertiary-container": "#f1eeff",
+        error: "#ba1a1a",
+        "on-error": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        background: "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-variant": "#dce2f7",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        sm: "0.25rem",
+        md: "0.75rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        full: "9999px",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;

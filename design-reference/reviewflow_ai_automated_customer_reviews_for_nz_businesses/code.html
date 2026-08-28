@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReviewFlow AI - Automated Genuine Customer Reviews for NZ Businesses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-container": "#6cf8bb",
+                        "on-tertiary-container": "#f1eeff",
+                        "inverse-on-surface": "#edf0ff",
+                        "tertiary": "#3e3fcc",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary-container": "#00714d",
+                        "inverse-surface": "#293040",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#07006c",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#2563eb",
+                        "surface-container-high": "#e1e8fd",
+                        "tertiary-fixed": "#e1e0ff",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface-variant": "#434655",
+                        "on-error": "#ffffff",
+                        "primary": "#004ac6",
+                        "surface-container-highest": "#dce2f7",
+                        "on-background": "#141b2b",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "outline-variant": "#c3c6d7",
+                        "surface-variant": "#dce2f7",
+                        "surface-container": "#e9edff",
+                        "background": "#f9f9ff",
+                        "outline": "#737686",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-primary-container": "#eeefff",
+                        "surface": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#006c49",
+                        "surface-bright": "#f9f9ff",
+                        "surface-tint": "#0053db",
+                        "tertiary-container": "#585be6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-low": "#f1f3ff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#d3daef",
+                        "on-surface": "#141b2b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "3xl": "64px",
+                        "unit": "4px",
+                        "max-width": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-max-width mx-auto bg-surface/80 backdrop-blur-md border-b border-outline-variant py-4">
+<div class="flex items-center gap-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-3xl" data-icon="speed" data-weight="fill" style="font-variation-settings: 'FILL' 1;">speed</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">ReviewFlow AI</span>
+</div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md" href="#how-it-works">How it Works</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md" href="#features">Features</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md" href="#pricing">Pricing</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md rounded-full px-lg py-sm hover:opacity-90 active:scale-95 transition-all duration-150">
+            Start Free
+        </button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-2xl pb-3xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl -z-10"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
+<div class="flex flex-col md:flex-row items-center gap-2xl">
+<div class="flex-1 space-y-lg z-10 text-center md:text-left">
+<div class="inline-flex items-center gap-xs bg-surface-container-low border border-outline-variant rounded-full px-md py-xs text-secondary font-label-sm text-label-sm mb-md">
+<span class="material-symbols-outlined text-sm" data-icon="new_releases">new_releases</span>
+                        Built for NZ Local Businesses
+                    </div>
+<h1 class="font-display text-display md:text-5xl lg:text-6xl text-on-background tracking-tight">
+                        Turn completed services into <span class="text-primary relative inline-block">genuine reviews.<svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary opacity-50" preserveaspectratio="none" viewbox="0 0 100 10"><path d="M0 5 Q 50 10 100 0" fill="none" stroke="currentColor" stroke-width="4"></path></svg></span> Automatically.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0">
+                        ReviewFlow AI follows up with customers after their visit, making it easy to share honest feedback without your staff having to remember. Free up time and grow your local reputation.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center md:justify-start pt-md">
+<button class="bg-primary text-on-primary font-label-md text-label-md rounded-full px-xl py-md shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                            Start Free Trial
+                        </button>
+<button class="bg-surface text-primary border border-primary font-label-md text-label-md rounded-full px-xl py-md hover:bg-surface-container-low transition-colors duration-200 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                            See How It Works
+                        </button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-sm">No credit card required. Cancel anytime.</p>
+</div>
+<div class="flex-1 w-full relative z-10 perspective-1000">
+<div class="relative rounded-xl overflow-hidden shadow-2xl border border-outline-variant bg-surface transform md:rotate-y-[-5deg] md:rotate-x-[5deg] transition-transform duration-500 hover:rotate-0">
+<!-- Dashboard Mockup Header -->
+<div class="bg-surface-container-low border-b border-outline-variant px-md py-sm flex items-center gap-sm">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+</div>
+<div class="mx-auto bg-surface border border-outline-variant rounded-md px-xl py-0.5 font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
+                                app.reviewflow.co.nz
+                            </div>
+</div>
+<!-- Dashboard Mockup Body -->
+<div class="p-lg bg-surface relative h-80">
+<div class="absolute top-lg right-lg text-right">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-xs">New Reviews This Week</p>
+<p class="font-headline-lg text-headline-lg text-secondary flex items-center justify-end gap-sm">
+                                    +18 <span class="material-symbols-outlined bg-secondary/10 p-1 rounded-full text-secondary" data-icon="trending_up">trending_up</span>
+</p>
+</div>
+<div class="space-y-md mt-xl">
+<!-- Mock Review Item -->
+<div class="glass-panel p-md rounded-lg flex items-start gap-md animate-fade-in-up" style="animation-delay: 0.1s;">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-bold">JD</div>
+<div>
+<div class="flex items-center gap-xs text-secondary mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">"Great haircut as always. Really appreciated the follow-up text!"</p>
+<p class="font-label-sm text-label-sm text-outline mt-1">John D. • 2 hours ago</p>
+</div>
+</div>
+<!-- Mock Review Item -->
+<div class="glass-panel p-md rounded-lg flex items-start gap-md animate-fade-in-up opacity-80" style="animation-delay: 0.3s;">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-tertiary font-bold">SM</div>
+<div>
+<div class="flex items-center gap-xs text-secondary mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">"Fast service, transparent pricing on the warrant of fitness."</p>
+<p class="font-label-sm text-label-sm text-outline mt-1">Sarah M. • Yesterday</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Industries / Trust Strip -->
+<section class="py-xl bg-surface-container-lowest border-y border-outline-variant">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-lg">Trusted by local NZ businesses</p>
+<div class="flex flex-wrap justify-center gap-xl md:gap-3xl opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex items-center gap-sm font-headline-sm text-headline-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="content_cut">content_cut</span> Barbers &amp; Salons
+                    </div>
+<div class="flex items-center gap-sm font-headline-sm text-headline-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="car_repair">car_repair</span> Mechanics
+                    </div>
+<div class="flex items-center gap-sm font-headline-sm text-headline-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="dentistry">dentistry</span> Dentists
+                    </div>
+<div class="flex items-center gap-sm font-headline-sm text-headline-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="restaurant">restaurant</span> Restaurants
+                    </div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-3xl bg-primary text-on-primary text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+<div class="max-w-3xl mx-auto px-margin-mobile relative z-10">
+<h2 class="font-headline-lg text-headline-lg md:text-display mb-md">Ready to grow your local reputation?</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim mb-xl">Join hundreds of NZ businesses collecting genuine feedback automatically.</p>
+<button class="bg-surface text-primary font-label-md text-label-md rounded-full px-xl py-md shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    Start your free trial today
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop mt-auto max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest dark:bg-background border-t border-outline-variant">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="speed" data-weight="fill" style="font-variation-settings: 'FILL' 1;">speed</span>
+            ReviewFlow AI
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 ReviewFlow AI NZ. All rights reserved.</p>
+<div class="flex gap-md font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors opacity-90 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors opacity-90 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors opacity-90 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</footer>
+<style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</body></html>

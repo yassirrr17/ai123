@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Script - ReviewFlow AI CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#dce2f7",
+                        "on-tertiary-fixed": "#07006c",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9ff",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-high": "#e1e8fd",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface-container-low": "#f1f3ff",
+                        "on-secondary-container": "#00714d",
+                        "primary-fixed": "#dbe1ff",
+                        "primary": "#004ac6",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f9f9ff",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#f1eeff",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "inverse-surface": "#293040",
+                        "on-background": "#141b2b",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-dim": "#d3daef",
+                        "on-surface": "#141b2b",
+                        "surface-container": "#e9edff",
+                        "outline": "#737686",
+                        "on-error": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface-variant": "#434655",
+                        "secondary-container": "#6cf8bb",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary": "#3e3fcc",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-fixed": "#e1e0ff",
+                        "tertiary-container": "#585be6",
+                        "on-secondary-fixed": "#002113",
+                        "surface-variant": "#dce2f7",
+                        "on-error-container": "#93000a",
+                        "secondary": "#006c49",
+                        "on-secondary-fixed-variant": "#005236"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "md": "16px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "2xl": "48px",
+                        "lg": "24px",
+                        "max-width": "1280px",
+                        "gutter": "20px",
+                        "xl": "32px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; color: #141b2b; }
+        .nav-item-active { background-color: #e9edff; color: #004ac6; font-weight: 600; border-radius: 0.5rem; }
+        .nav-item-inactive { color: #434655; font-weight: 500; }
+        .nav-item-inactive:hover { background-color: #f1f3ff; color: #141b2b; border-radius: 0.5rem; }
+        .script-card { background-color: #ffffff; border: 1px solid #c3c6d7; border-radius: 0.75rem; padding: 24px; transition: box-shadow 0.2s ease-in-out; }
+        .script-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .highlighter { background-color: #dce2f7; color: #004ac6; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+        .btn-primary { background-color: #004ac6; color: #ffffff; padding: 12px 24px; border-radius: 0.5rem; font-weight: 600; transition: background-color 0.2s ease; display: inline-flex; items-center: center; gap: 8px; }
+        .btn-primary:hover { background-color: #003ea8; }
+        .btn-secondary { background-color: #ffffff; border: 1px solid #c3c6d7; color: #004ac6; padding: 12px 24px; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s ease; display: inline-flex; items-center: center; gap: 8px; }
+        .btn-secondary:hover { background-color: #f9f9ff; border-color: #004ac6; }
+        .tab-active { border-bottom: 2px solid #004ac6; color: #004ac6; font-weight: 600; }
+        .tab-inactive { color: #434655; border-bottom: 2px solid transparent; }
+        .tab-inactive:hover { color: #141b2b; border-bottom: 2px solid #c3c6d7; }
+        
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex bg-background h-screen overflow-hidden">
+<!-- Navigation Drawer (SideNav) - Desktop Only -->
+<nav class="hidden md:flex flex-col h-screen fixed left-0 top-0 p-lg h-full w-72 rounded-r-xl border-r border-outline-variant bg-surface dark:bg-background shadow-sm dark:shadow-none transition-all duration-200 ease-in-out z-40">
+<!-- Profile Header -->
+<div class="flex items-center gap-md mb-xl">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Business Owner" class="w-full h-full object-cover" data-alt="A professional headshot of a business owner, well lit, corporate modern style, isolated on a clean soft blue background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9-yXIyAtuycBZgiid-igjDYHOl0O84ZLkQJV3QhLY7CuMmJsjnxL3zY9_gakzrq1H1mpAxaE3Lu1JqbKnkl4rmNN-tCYqqhI2OD88-f2_VT9RF6c2Mj65ya_BO10HtvrDz5oxJQ7WGdTyO-XKK1pIg-3QZ5yor5koHZO1_1ONgYE5q8TbEfMVxQVkr2aHHLdZLdsQGWt7q4BOLu7UMil2llNggjacqrSVjKZIHYGAN_UAU8KwmmlhnA"/>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">ReviewFlow AI</h2>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">v2.1.0 (Admin)</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex-1 space-y-2 mt-4">
+<li>
+<a class="flex items-center gap-md p-3 nav-item-inactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md p-3 nav-item-inactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Customers</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md p-3 nav-item-inactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span class="font-label-md text-label-md">Requests</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md p-3 nav-item-inactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md">AI Generator</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md p-3 nav-item-active transition-all duration-200 ease-in-out bg-primary-container text-on-primary-container font-bold rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md p-3 nav-item-inactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<!-- User Context Footer -->
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-bold">
+                     KS
+                 </div>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md text-on-surface truncate">Kiwi Services Ltd</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Professional Plan</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Top App Bar - Mobile Only -->
+<header class="md:hidden sticky top-0 z-50 flex justify-between items-center px-margin-mobile w-full bg-surface/90 backdrop-blur-md border-b border-outline-variant h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="leaderboard">leaderboard</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CRM</h1>
+</div>
+<button class="text-primary p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 flex flex-col h-screen overflow-y-auto w-full relative">
+<div class="max-w-max-width mx-auto w-full px-margin-mobile md:px-margin-desktop py-lg md:py-xl">
+<!-- Page Header -->
+<div class="mb-xl flex flex-col md:flex-row justify-between items-start md:items-end gap-4 fade-in">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<span class="text-label-md font-label-md text-primary tracking-wide uppercase">Internal Playbook</span>
+</div>
+<h1 class="font-display text-display text-on-surface mb-2">100-Prospect Sales Script</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Internal playbook for cold outreach to local NZ businesses. Use these scripts to systematically pitch the ReviewFlow AI value proposition.
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="btn-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Export PDF
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-6 mb-lg border-b border-outline-variant fade-in" style="animation-delay: 0.1s;">
+<button class="pb-3 px-1 tab-active font-label-md text-label-md transition-colors" id="tab-call" onclick="switchTab('call')">
+                    Cold Call Script
+                </button>
+<button class="pb-3 px-1 tab-inactive font-label-md text-label-md transition-colors" id="tab-email" onclick="switchTab('email')">
+                    Email Templates
+                </button>
+</div>
+<!-- Tab Content: Cold Call Script -->
+<div class="space-y-6 fade-in" id="content-call" style="animation-delay: 0.2s;">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column: The Script Flow -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Section 1: Opening -->
+<div class="script-card relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-primary flex items-center justify-center font-bold flex-shrink-0">1</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Opening &amp; Permission</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Goal: Get past the gatekeeper and secure 30 seconds of attention.</p>
+<div class="bg-surface-container p-4 rounded-lg border border-outline-variant">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                                            "Hi, is the owner or manager available? <br/><br/>
+                                            Hi <span class="highlighter">[Name]</span>, my name is [Your Name]. I know you're busy running <span class="highlighter">[Business Name]</span>, so I'll be brief. I'm working on a small software product for local businesses that automatically follows up with customers after they've completed a service. <br/><br/>
+                                            Do you have 30 seconds for me to explain how it works?"
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: The Why -->
+<div class="script-card relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-surface-variant"></div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold flex-shrink-0">2</div>
+<div class="w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">The 'Why' &amp; The Problem</h3>
+<div class="bg-surface-container p-4 rounded-lg border border-outline-variant">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                                            "I noticed you guys do great work, but looking at your Google Reviews, it seems like maybe not every happy customer is leaving one. Usually, that's just because business owners don't have the time to manually text everyone asking for a review."
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Value Prop & Hook -->
+<div class="script-card relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-primary flex items-center justify-center font-bold flex-shrink-0">3</div>
+<div class="w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">The Value Prop &amp; Ask</h3>
+<div class="bg-surface-container p-4 rounded-lg border border-outline-variant mb-4">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                                            "We've built a system that connects to your booking calendar or POS. When a customer finishes a job, it automatically sends them a friendly text asking for a review. It filters out bad feedback internally and pushes the 5-star reviews straight to Google. <br/><br/>
+<span class="font-semibold text-primary">Would you be open to a quick 5-minute demo next week to see if it could help boost your local ranking?</span>"
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Context & Objections -->
+<div class="space-y-6">
+<div class="script-card bg-surface-container-lowest">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-error" data-icon="shield">shield</span>
+                                Objection Handling
+                            </h3>
+<div class="space-y-4">
+<div class="border-l-2 border-outline-variant pl-3">
+<p class="font-label-md text-label-md text-on-surface mb-1">"We already get enough business."</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        "That's great! More reviews actually act as a moat against competitors moving into your area, and helps you rank higher organically so you don't have to pay for ads."
+                                    </p>
+</div>
+<div class="border-l-2 border-outline-variant pl-3">
+<p class="font-label-md text-label-md text-on-surface mb-1">"I don't have time to set this up."</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        "I completely understand. That's why we do the full setup for you. It takes about 10 minutes of your time on a call, and then it runs completely in the background."
+                                    </p>
+</div>
+<div class="border-l-2 border-outline-variant pl-3">
+<p class="font-label-md text-label-md text-on-surface mb-1">"Send me an email."</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        "Will do. What's the best email address? I'll send over a 1-page summary. If you like what you see, we can chat later next week." (Move to Email Sequence)
+                                    </p>
+</div>
+</div>
+</div>
+<div class="script-card bg-primary-container text-on-primary-container">
+<h4 class="font-label-md text-label-md font-bold mb-2">Key Tone Directives</h4>
+<ul class="list-disc list-inside font-body-sm text-body-sm space-y-1 opacity-90">
+<li>Speak slowly and clearly.</li>
+<li>Sound like a local peer, not a corporate robot.</li>
+<li>Emphasize "automatic" and "background".</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Email Templates -->
+<div class="hidden space-y-6 fade-in" id="content-email">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Template 1 -->
+<div class="script-card flex flex-col h-full">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">Step 1: Introduction</span>
+<button class="text-primary hover:bg-surface-container p-2 rounded-full transition-colors" title="Copy to clipboard">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div class="mb-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Subject</label>
+<div class="bg-surface-container-lowest border border-outline-variant p-2 rounded text-on-surface font-body-md text-body-md">
+                                Quick question about <span class="highlighter">{{business_name}}</span>'s Google Reviews
+                            </div>
+</div>
+<div class="flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Body</label>
+<div class="bg-surface-container-lowest border border-outline-variant p-3 rounded text-on-surface font-body-md text-body-md whitespace-pre-wrap h-full min-h-[200px]">Hi {{owner_name}},
+
+I was looking for a {{service}} in {{city}} and noticed {{business_name}} has some great feedback, but it looks like you might be missing out on reviews from happy customers who just forget to post them.
+
+I help local businesses automate this. We set up a simple system that automatically texts your customers after a job, politely asking for a review. It pushes the good ones to Google and catches any negative feedback privately.
+
+Would you be open to a quick 5-min chat next Tuesday to see if it makes sense for you?
+
+Cheers,
+[Your Name]</div>
+</div>
+</div>
+<!-- Template 2 & 3 Column -->
+<div class="space-y-6">
+<!-- Template 2 -->
+<div class="script-card">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">Step 2: Follow-up 1 (Day 3)</span>
+<button class="text-primary hover:bg-surface-container p-2 rounded-full transition-colors" title="Copy to clipboard">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div class="mb-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Subject</label>
+<div class="bg-surface-container-lowest border border-outline-variant p-2 rounded text-on-surface font-body-sm text-body-sm">
+                                    Re: Quick question about {{business_name}}'s Google Reviews
+                                </div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Body</label>
+<div class="bg-surface-container-lowest border border-outline-variant p-3 rounded text-on-surface font-body-sm text-body-sm whitespace-pre-wrap">Hi {{owner_name}}, just bubbling this up to the top of your inbox. 
+
+Getting consistent 5-star reviews is usually the fastest way to get more {{service}} jobs organically without paying for ads. 
+
+Let me know if you have a few minutes this week to see how we automate this for you.</div>
+</div>
+</div>
+<!-- Template 3 -->
+<div class="script-card">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">Step 3: Final (Day 7)</span>
+<button class="text-primary hover:bg-surface-container p-2 rounded-full transition-colors" title="Copy to clipboard">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Body</label>
+<div class="bg-surface-container-lowest border border-outline-variant p-3 rounded text-on-surface font-body-sm text-body-sm whitespace-pre-wrap">Hi {{owner_name}}, I know things get busy. I'll leave it here, but if you ever want to put your review collection on autopilot and boost your local ranking, feel free to reach out. 
+
+Thanks!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface dark:bg-inverse-surface border-t border-outline-variant shadow-lg docked full-width bottom-0 rounded-t-xl h-[72px]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant px-4 py-1 rounded-full transition-all duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant px-4 py-1 rounded-full transition-all duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="star">star</span>
+<span class="font-label-sm text-label-sm-mobile">Reviews</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-90 duration-100 font-bold" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person_search" style="font-variation-settings: 'FILL' 1;">person_search</span>
+<span class="font-label-sm text-label-sm-mobile">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant px-4 py-1 rounded-full transition-all duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu">menu</span>
+<span class="font-label-sm text-label-sm-mobile">Menu</span>
+</a>
+</nav>
+<script>
+        function switchTab(tabId) {
+            // Update Tab Styling
+            document.getElementById('tab-call').className = tabId === 'call' ? 'pb-3 px-1 tab-active font-label-md text-label-md transition-colors' : 'pb-3 px-1 tab-inactive font-label-md text-label-md transition-colors';
+            document.getElementById('tab-email').className = tabId === 'email' ? 'pb-3 px-1 tab-active font-label-md text-label-md transition-colors' : 'pb-3 px-1 tab-inactive font-label-md text-label-md transition-colors';
+            
+            // Update Content Visibility
+            document.getElementById('content-call').style.display = tabId === 'call' ? 'block' : 'none';
+            document.getElementById('content-email').style.display = tabId === 'email' ? 'block' : 'none';
+        }
+    </script>
+</body></html>

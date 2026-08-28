@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lead Management List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#dce2f7",
+                        "on-secondary-container": "#00714d",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#002113",
+                        "surface": "#f9f9ff",
+                        "surface-tint": "#0053db",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "on-primary-container": "#eeefff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "background": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-container-highest": "#dce2f7",
+                        "surface-dim": "#d3daef",
+                        "outline": "#737686",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#07006c",
+                        "tertiary-fixed": "#e1e0ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary": "#3e3fcc",
+                        "surface-container": "#e9edff",
+                        "primary": "#004ac6",
+                        "surface-bright": "#f9f9ff",
+                        "on-background": "#141b2b",
+                        "secondary-container": "#6cf8bb",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary-container": "#585be6",
+                        "on-primary-fixed": "#00174b",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-container": "#f1eeff",
+                        "secondary": "#006c49",
+                        "on-surface": "#141b2b",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-primary": "#b4c5ff",
+                        "inverse-surface": "#293040"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "max-width": "1280px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "display": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 md:pl-72 pt-16 md:pt-0 flex flex-col">
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<header class="bg-surface text-primary font-headline-sm text-headline-sm font-bold fixed top-0 w-full md:w-[calc(100%-18rem)] z-40 border-b border-outline-variant shadow-sm md:hidden">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-2 text-primary active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CRM Admin</h1>
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small, professional headshot avatar of a sales admin user. Bright lighting, clean background, modern light-mode aesthetic, corporate B2B SaaS feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo_87DcwxjXvd7uVwoV-9wR80_1j5-usX6ADMb9MHcpONUdZIMT2fP6_yN9ppc9UnZWrwd1_6z2hYTYOmBY76YAPH633tgi759mPauhIq6cqJQCjML-ebRFxyGFcU_RzVWssotB-_cj2MiyZW74xtM6oUFaOmlJBx7SncrSuJG5_5Jl9Oij2bWGpRcQC138Ic_AuT0hAa1DfP5TXhEXWElSPbD6UrObVnaM6XW3aY4jWviBBKciT6ZtA"/>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop Only) -->
+<nav class="hidden md:flex bg-surface shadow-md h-full w-72 rounded-r-xl fixed left-0 top-0 flex-col z-50 border-r border-outline-variant">
+<div class="p-6 border-b border-outline-variant flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-surface-container-high" data-alt="A professional headshot avatar of a sales representative. Bright lighting, clean background, modern light-mode aesthetic, corporate B2B SaaS feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtoYvMwSrnE3j6ejMnHBsX4E94gPkS_d8M_p7BZOigdhk4oZMlYkSViZRLu_zK9YoGs-gfldHgLq7vYoUdMp5OvKHZTs_R7hV3exhqHk8fODe6xIyeYV8D2Eu9Ya6Ey3Lf-NN0vvZKsHNpoPoNYwEztRB04Lu8dUHzfvhDjAaQZT0wluDo0uNzOdmFtVYqa6QwaVjMg0uwg2_-yEdNvdHa7h7qL1HnByd_DuP3vdw_5HdodYXSznkK3g"/>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-black text-primary">Sales Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">New Zealand Region</p>
+</div>
+</div>
+<div class="flex-1 py-4 overflow-y-auto">
+<ul class="space-y-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-md text-label-md">Pipeline</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 bg-primary-container text-on-primary-container font-bold rounded-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Leads</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-4 border-t border-outline-variant text-center">
+<span class="font-label-sm text-label-sm text-outline">v2.4.0</span>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-lg mt-4 md:mt-0">
+<div>
+<h1 class="font-display text-display text-on-background">Prospect Leads</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage and prioritize your business contacts.</p>
+</div>
+<button class="hidden md:flex bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-xl items-center gap-2 hover:bg-surface-tint transition-colors shadow-sm active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add Lead
+            </button>
+</div>
+<!-- Search and Filters (Bento Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-lg">
+<!-- Search Bar -->
+<div class="md:col-span-6 bg-surface border border-outline-variant rounded-xl p-2 flex items-center shadow-sm focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined text-outline px-2" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-background placeholder-outline py-2 px-2 rounded-xl" placeholder="Search business name or city..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="md:col-span-6 flex gap-4 overflow-x-auto hide-scrollbar pb-2 md:pb-0">
+<select class="bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md text-body-md text-on-background shadow-sm focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim min-w-[140px]">
+<option value="">All Industries</option>
+<option value="barber">Barber</option>
+<option value="mechanic">Mechanic</option>
+<option value="retail">Retail</option>
+</select>
+<select class="bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md text-body-md text-on-background shadow-sm focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim min-w-[140px]">
+<option value="">All Statuses</option>
+<option value="new">New</option>
+<option value="contacted">Contacted</option>
+<option value="qualified">Qualified</option>
+</select>
+</div>
+</div>
+<!-- Lead List / Cards -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Ponsonby Barbers</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm px-2 py-1 rounded-md uppercase tracking-wide">New</span>
+</div>
+<div class="flex flex-wrap items-center gap-4 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="storefront">storefront</span>
+                            Barber
+                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Auckland
+                        </div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between w-full md:w-auto gap-4 border-t md:border-t-0 border-outline-variant pt-4 md:pt-0 mt-2 md:mt-0">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Prospect Score</span>
+<div class="w-12 h-12 rounded-full border-4 border-primary-container flex items-center justify-center text-primary-container font-headline-sm text-headline-sm font-bold bg-surface-container">
+                            85
+                        </div>
+</div>
+<button class="md:hidden p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Wellington Wheels</h3>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-2 py-1 rounded-md uppercase tracking-wide">Contacted</span>
+</div>
+<div class="flex flex-wrap items-center gap-4 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span>
+                            Mechanic
+                        </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Wellington
+                        </div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between w-full md:w-auto gap-4 border-t md:border-t-0 border-outline-variant pt-4 md:pt-0 mt-2 md:mt-0">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Prospect Score</span>
+<div class="w-12 h-12 rounded-full border-4 border-secondary-container flex items-center justify-center text-secondary font-headline-sm text-headline-sm font-bold bg-surface-container">
+                            62
+                        </div>
+</div>
+<button class="md:hidden p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Mobile) -->
+<button class="md:hidden fixed bottom-24 right-4 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-surface-tint transition-colors active:scale-90 z-40">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-lg flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-sm text-label-sm">Pipeline</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl p-2 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person_search" style="font-variation-settings: 'FILL' 1;">person_search</span>
+<span class="font-label-sm text-label-sm">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm">Tasks</span>
+</a>
+</nav>
+</body></html>

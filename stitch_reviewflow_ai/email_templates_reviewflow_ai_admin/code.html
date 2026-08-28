@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Templates - ReviewFlow AI Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container": "#e9edff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "background": "#f9f9ff",
+                        "inverse-surface": "#293040",
+                        "error": "#ba1a1a",
+                        "on-surface": "#141b2b",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#585be6",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#edf0ff",
+                        "surface-variant": "#dce2f7",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-high": "#e1e8fd",
+                        "tertiary": "#3e3fcc",
+                        "surface-dim": "#d3daef",
+                        "secondary-container": "#6cf8bb",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-highest": "#dce2f7",
+                        "on-background": "#141b2b",
+                        "on-surface-variant": "#434655",
+                        "primary": "#004ac6",
+                        "outline": "#737686",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-container": "#f1eeff",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed": "#07006c",
+                        "surface-tint": "#0053db",
+                        "secondary": "#006c49",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-fixed": "#e1e0ff",
+                        "secondary-fixed-dim": "#4edea3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "max-width": "1280px",
+                        "xl": "32px",
+                        "margin-desktop": "40px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "gutter": "20px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+            color: #141b2b;
+            padding-bottom: 80px; /* Space for bottom nav on mobile */
+        }
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+        
+        .variable-highlight {
+            background-color: #e9edff;
+            color: #004ac6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full flex flex-col antialiased">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop h-16 w-full fixed top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors active:opacity-80">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">CRM Admin</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-4">
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest px-3 py-2 rounded-md transition-colors font-label-md" href="#">Dashboard</a>
+<a class="text-primary dark:text-primary-fixed font-semibold hover:bg-surface-container-high dark:hover:bg-surface-container-highest px-3 py-2 rounded-md transition-colors font-label-md" href="#">Pipeline</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest px-3 py-2 rounded-md transition-colors font-label-md" href="#">Leads</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest px-3 py-2 rounded-md transition-colors font-label-md" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional headshot of an administrative user, brightly lit, high quality, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeAa6t_PL2rtYQaNbSuaQLnOL5UHL-JwatPtqnP6dvwcrIPoEJ9j_fD4JKtAwNFRMCh3wCB1zeZ71jFyepnz_RWsop8X4b0rXkzzYzb3_NYW1Jj--dP426GPUDcVueVugO8z8qo8BgGMcPYEE90RhAB6TDAT9Gi5qHW_bkY74gJP5-4l34syj7Ywmp2ORRq1XlDFbUiqlj_ZPo_VUDXs4_wPvqVr3zxooCBEUAi0xF5UFxUMetH9NEKA"/>
+<span class="font-label-sm text-label-sm text-on-surface">Admin User Profile</span>
+</div>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">CRM Admin</span>
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-full border border-outline-variant">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional headshot of an administrative user, brightly lit, high quality, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMa7JBsXeZ8YEg0dkbcjDkorzkDIXapGorCxNPahn2hxmkrdIyzspYygLgXgcUTUSY-MPlvJcM4YY1TVyK5ylF2DWuHWWghuUbqJfNIoJMMykFj6m-7pf8CyC9q9SPcVMlzyepM8iM9T0pmZGq-QVH4l1zH6ff-LGS2rTqswR4GvjEtoEFWq9LBgiiiru9cIjUNbYM4wZuVSupZZaniCspMXW2BiHtLy8vjDRdSrueZL2S4-qU3Gq2QA"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-20 md:pt-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto w-full pb-xl">
+<!-- Header Section -->
+<div class="mb-lg">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-2">Email Playbook</h1>
+<p class="font-body-md text-on-surface-variant">100 NZ Prospects Campaign</p>
+</div>
+<!-- Layout Container -->
+<div class="flex flex-col lg:flex-row gap-lg">
+<!-- Sidebar / Tab Navigation -->
+<div class="w-full lg:w-1/4">
+<div class="bg-surface rounded-xl border border-outline-variant p-4 flex flex-col gap-2">
+<h3 class="font-label-md text-on-surface-variant mb-2 px-2 uppercase tracking-wide">Sequence Steps</h3>
+<button class="tab-btn w-full text-left px-4 py-3 rounded-lg flex items-center justify-between font-label-md transition-colors bg-primary-container text-on-primary-container" data-target="tab-initial">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+                            Initial Outreach
+                        </div>
+<span class="text-xs bg-surface-container font-medium px-2 py-0.5 rounded-full text-on-surface">Day 1</span>
+</button>
+<button class="tab-btn w-full text-left px-4 py-3 rounded-lg flex items-center justify-between font-label-md transition-colors text-on-surface-variant hover:bg-surface-container-high" data-target="tab-followup">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">mark_email_read</span>
+                            Follow-up
+                        </div>
+<span class="text-xs bg-surface-container font-medium px-2 py-0.5 rounded-full text-on-surface">Day 4</span>
+</button>
+<button class="tab-btn w-full text-left px-4 py-3 rounded-lg flex items-center justify-between font-label-md transition-colors text-on-surface-variant hover:bg-surface-container-high" data-target="tab-breakup">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">unsubscribe</span>
+                            Final Break-up
+                        </div>
+<span class="text-xs bg-surface-container font-medium px-2 py-0.5 rounded-full text-on-surface">Day 10</span>
+</button>
+</div>
+</div>
+<!-- Editor/Viewer Area -->
+<div class="w-full lg:w-3/4">
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col h-full shadow-sm">
+<!-- Top Actions Bar -->
+<div class="bg-surface-container-lowest border-b border-outline-variant px-6 py-4 flex justify-between items-center">
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-variant text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-[16px]">data_object</span> Variables active
+                            </span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-lg border border-outline-variant font-label-md text-primary bg-surface hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">content_copy</span> Copy Template
+                            </button>
+<button class="px-4 py-2 rounded-lg font-label-md text-on-primary bg-primary hover:bg-surface-tint transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                            </button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-6 md:p-8 flex-grow">
+<!-- Initial Outreach Tab -->
+<div class="tab-content active" id="tab-initial">
+<div class="mb-6">
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Subject Line</label>
+<div class="w-full border border-outline-variant rounded-lg p-3 bg-surface-container-lowest font-body-md text-on-surface shadow-sm">
+                                    Helping <span class="variable-highlight">{{business_name}}</span> get more genuine reviews
+                                </div>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Email Body</label>
+<div class="w-full border border-outline-variant rounded-lg p-4 bg-surface-container-lowest font-body-md text-on-surface shadow-sm whitespace-pre-line min-h-[300px]">
+Hi <span class="variable-highlight">{{owner_name}}</span>,
+
+I noticed <span class="variable-highlight">{{business_name}}</span> is doing great work in <span class="variable-highlight">{{city}}</span> but has fewer Google reviews than some competitors. 
+
+I'm working on a tool called ReviewFlow AI that automates the follow-up process to help you get more honest feedback from customers. 
+
+Would you be open to a 5-minute demo?
+
+Best regards,
+Admin
+                                </div>
+</div>
+</div>
+<!-- Follow-up Tab -->
+<div class="tab-content" id="tab-followup">
+<div class="mb-6">
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Subject Line</label>
+<div class="w-full border border-outline-variant rounded-lg p-3 bg-surface-container-lowest font-body-md text-on-surface shadow-sm">
+                                    Quick follow up / ReviewFlow AI
+                                </div>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Email Body</label>
+<div class="w-full border border-outline-variant rounded-lg p-4 bg-surface-container-lowest font-body-md text-on-surface shadow-sm whitespace-pre-line min-h-[300px]">
+Hi <span class="variable-highlight">{{owner_name}}</span>,
+
+Just checking if you saw my last note about helping <span class="variable-highlight">{{business_name}}</span> automate customer reviews. 
+
+Most NZ service businesses see a significant lift in genuine feedback within 30 days. Let me know if you'd like to see how it works.
+
+Best,
+Admin
+                                </div>
+</div>
+</div>
+<!-- Break-up Tab -->
+<div class="tab-content" id="tab-breakup">
+<div class="mb-6">
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Subject Line</label>
+<div class="w-full border border-outline-variant rounded-lg p-3 bg-surface-container-lowest font-body-md text-on-surface shadow-sm">
+                                    Moving your lead to 'Inactive'
+                                </div>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-1 uppercase tracking-wide">Email Body</label>
+<div class="w-full border border-outline-variant rounded-lg p-4 bg-surface-container-lowest font-body-md text-on-surface shadow-sm whitespace-pre-line min-h-[300px]">
+Hi <span class="variable-highlight">{{owner_name}}</span>,
+
+I haven't heard back, so I'll assume now isn't the right time to focus on automated reviews for <span class="variable-highlight">{{business_name}}</span>. 
+
+I'll move your lead to inactive for now. If things change, feel free to reach out.
+
+Thanks,
+Admin
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-outline-variant z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl p-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-sm text-label-sm mt-1">Pipeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-sm text-label-sm mt-1">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm mt-1">Tasks</span>
+</a>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset all buttons
+                    tabBtns.forEach(b => {
+                        b.classList.remove('bg-primary-container', 'text-on-primary-container');
+                        b.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+                        const icon = b.querySelector('.material-symbols-outlined');
+                        if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+                    });
+
+                    // Set active button
+                    btn.classList.add('bg-primary-container', 'text-on-primary-container');
+                    btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+                    const activeIcon = btn.querySelector('.material-symbols-outlined');
+                    if(activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+
+                    // Hide all content
+                    tabContents.forEach(c => {
+                        c.classList.remove('active');
+                        // short delay to allow transition
+                        setTimeout(() => {
+                            if(!c.classList.contains('active')) c.style.display = 'none';
+                        }, 300);
+                    });
+
+                    // Show active content
+                    const targetId = btn.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    targetContent.style.display = 'block';
+                    // trigger reflow
+                    void targetContent.offsetWidth;
+                    targetContent.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body></html>
